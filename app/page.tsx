@@ -15,7 +15,7 @@ export default function Home() {
           <h2 className="text-9xl text-white font-extrabold">chiquiconcurs</h2>
         </div>
         <div className="h-1/3 flex flex-col items-center justify-start">
-          <Link href="/concurs">
+          <Link href="/concursPage">
             <div className="group rounded-lg border border-transparent px-5 py-4 transition-all ease-in-out hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-500 hover:dark:bg-neutral-700/30 hover:scale-110 duration-200">
               <h2 className={`mb-3 text-2xl font-semibold text-center`}>
                 START{" "}
