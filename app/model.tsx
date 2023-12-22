@@ -9,10 +9,13 @@ export class Solution {
 }
 
 export class Question {
+  difficulty: Number;
   content: string;
+
   solutions: Solution[];
 
   constructor(
+    difficulty: number,
     content: string,
     solutions: Solution[] = [
       new Solution("A"),
@@ -21,17 +24,8 @@ export class Question {
       new Solution("D"),
     ]
   ) {
+    this.difficulty = difficulty;
     this.content = content;
     this.solutions = solutions;
-  }
-}
-
-export class QuestionListByDiff {
-  difficulty: Number;
-  questions: Question[];
-
-  constructor(difficulty: number, questions: Question[]) {
-    this.difficulty = difficulty;
-    this.questions = questions;
   }
 }
