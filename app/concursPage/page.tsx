@@ -7,18 +7,20 @@ import {
   midQuestionsList,
   diffQuestionsList,
 } from "../data";
+import BolasPreguntas from "./bolasPreguntas";
 
 export default function ConcursPage() {
   const [vidas, setVidas] = useState(3);
   const [indexQuestion, setindexQuestion] = useState(0);
+  const [wasItGuessed, setWasItGuessed] = useState<boolean[]>([true, false]);
   const randomSorting = () => Math.random() - 0.5;
   const loadQuestionList: Question[] = [
     ...easyQuestionsList.sort(randomSorting),
     ...midQuestionsList.sort(randomSorting),
     ...diffQuestionsList.sort(randomSorting),
   ];
-  const restarVida = () => {
-    setVidas(vidas - 1);
+  const btnHandler = () => {
+    setindexQuestion(indexQuestion + 1);
   };
 
   return (
@@ -34,24 +36,25 @@ export default function ConcursPage() {
         {vidas > 0 ? (
           <>
             <div className="h-3/5 w-full bg-yellow-500"></div>
-            <div className="h-20 w-full bg-red-500"></div>
+            <BolasPreguntas
+              loadQuestionList={loadQuestionList}
+              indexQuestion={indexQuestion}
+              wasItGuessed={wasItGuessed}
+            />
             <div className="h-2/5 w-full bg-blue-500"></div>
           </>
         ) : (
           <h2 className="text-8xl text-white font-extrabold">has perdut!</h2>
         )}
 
-        {/* 
-        -------------------> BOTÓ RESTAR VIDES
+        {/* -------------------> BOTÓ pruebas
         <div
-          onClick={restarVida}
+          onClick={btnHandler}
           className="m-24 font-bold text-black border-2 border-solid border-red-500 bg-red-200 p-5 text-2xl rounded-lg"
         >
           {" "}
-          RESTA
-        </div> 
-        
-        */}
+          PRUEBA
+        </div> */}
       </div>
     </main>
   );
