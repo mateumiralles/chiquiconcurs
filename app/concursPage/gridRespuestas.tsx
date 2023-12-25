@@ -57,18 +57,17 @@ export default function GridRespuestas({
         <div
           onClick={() => optionClickHandler(sol.isTrue, i)}
           key={i}
-          className={`border-2 border-[rgba(0,0,0,0)] ${
+          className={`border-2 border-[rgba(0,0,0,0)] rounded-3xl flex justify-center items-center hover:border-white hover:scale-95 transition-all ease-in-out cursor-pointer ${
             alreadyChosen
               ? optionChosen === i
                 ? sol.isTrue
-                  ? "bg-green-700"
+                  ? "bg-[rgba(55,187,103,0.5)]"
                   : "bg-[rgba(224,75,75,0.5)]"
                 : sol.isTrue
-                ? "bg-green-700"
+                ? "bg-[rgba(55,187,103,0.5)]"
                 : "bg-[rgba(255,255,255,0.1)]"
               : "bg-[rgba(255,255,255,0.1)]"
-          } rounded-3xl flex justify-center items-center hover:border-white hover:scale-95 transition-all ease-in-out cursor-pointer`}
-          // className="border-2 border-[rgba(0,0,0,0)] bg-[rgba(255,255,255,0.1)] rounded-3xl flex justify-center items-center hover:border-white hover:scale-95 transition-all ease-in-out"
+          } `}
         >
           <p className="text-4xl font-bold text-center">
             {numberOfSol(i) + sol.content}
