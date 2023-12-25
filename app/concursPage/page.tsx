@@ -9,6 +9,7 @@ import {
 } from "../data";
 import BolasPreguntas from "./bolasPreguntas";
 import PanelPreguntas from "./panelPreguntas";
+import GridRespuestas from "./gridRespuestas";
 
 export default function ConcursPage() {
   const [vidas, setVidas] = useState(3);
@@ -19,6 +20,7 @@ export default function ConcursPage() {
     ...midQuestionsList,
     ...diffQuestionsList,
   ];
+
   const btnHandler = () => {
     setindexQuestion(indexQuestion + 1);
   };
@@ -44,7 +46,10 @@ export default function ConcursPage() {
               indexQuestion={indexQuestion}
               wasItGuessed={wasItGuessed}
             />
-            <div className="h-2/5 w-full bg-blue-500"></div>
+            <GridRespuestas
+              loadQuestionList={loadQuestionList}
+              indexQuestion={indexQuestion}
+            />
           </>
         ) : (
           <h2 className="text-8xl text-white font-extrabold">has perdut!</h2>
