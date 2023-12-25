@@ -13,17 +13,13 @@ import GridRespuestas from "./gridRespuestas";
 
 export default function ConcursPage() {
   const [vidas, setVidas] = useState(3);
-  const [indexQuestion, setindexQuestion] = useState(0);
-  const [wasItGuessed, setWasItGuessed] = useState<boolean[]>([true, false]);
+  const [indexQuestion, setIndexQuestion] = useState(0);
+  const [wasItGuessed, setWasItGuessed] = useState<boolean[]>([]);
   const loadQuestionList: Question[] = [
     ...easyQuestionsList,
     ...midQuestionsList,
     ...diffQuestionsList,
   ];
-
-  const btnHandler = () => {
-    setindexQuestion(indexQuestion + 1);
-  };
 
   return (
     <main className="flex  w-screen h-screen flex-col items-center justify-between ">
@@ -49,20 +45,16 @@ export default function ConcursPage() {
             <GridRespuestas
               loadQuestionList={loadQuestionList}
               indexQuestion={indexQuestion}
+              setIndexQuestion={setIndexQuestion}
+              wasItGuessed={wasItGuessed}
+              setWasItGuessed={setWasItGuessed}
+              vidas={vidas}
+              setVidas={setVidas}
             />
           </>
         ) : (
           <h2 className="text-8xl text-white font-extrabold">has perdut!</h2>
         )}
-
-        {/* -------------------> BOTÓ pruebas
-        <div
-          onClick={btnHandler}
-          className="m-24 font-bold text-black border-2 border-solid border-red-500 bg-red-200 p-5 text-2xl rounded-lg"
-        >
-          {" "}
-          PRUEBA
-        </div> */}
       </div>
     </main>
   );
