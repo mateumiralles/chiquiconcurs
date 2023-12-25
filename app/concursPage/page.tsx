@@ -35,7 +35,11 @@ export default function ConcursPage() {
         <Vidas vidas={vidas} />
         {vidas > 0 ? (
           <>
-            <div className="h-3/5 w-full bg-yellow-500"></div>
+            <div className="h-3/5 w-full flex flex-row justify-center items-end pt-[8%] pb-[2%]">
+              <div className="h-full w-4/5 bg-[rgba(255,255,255,0.1)] rounded-[60px] flex flex-row justify-center items-center">
+                <p className="text-white ">DISSENY PANELL QUESTIONS</p>
+              </div>
+            </div>
             <BolasPreguntas
               loadQuestionList={loadQuestionList}
               indexQuestion={indexQuestion}
