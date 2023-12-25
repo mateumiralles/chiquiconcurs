@@ -8,16 +8,16 @@ import {
   diffQuestionsList,
 } from "../data";
 import BolasPreguntas from "./bolasPreguntas";
+import PanelPreguntas from "./panelPreguntas";
 
 export default function ConcursPage() {
   const [vidas, setVidas] = useState(3);
   const [indexQuestion, setindexQuestion] = useState(0);
   const [wasItGuessed, setWasItGuessed] = useState<boolean[]>([true, false]);
-  const randomSorting = () => Math.random() - 0.5;
   const loadQuestionList: Question[] = [
-    ...easyQuestionsList.sort(randomSorting),
-    ...midQuestionsList.sort(randomSorting),
-    ...diffQuestionsList.sort(randomSorting),
+    ...easyQuestionsList,
+    ...midQuestionsList,
+    ...diffQuestionsList,
   ];
   const btnHandler = () => {
     setindexQuestion(indexQuestion + 1);
@@ -35,11 +35,10 @@ export default function ConcursPage() {
         <Vidas vidas={vidas} />
         {vidas > 0 ? (
           <>
-            <div className="h-3/5 w-full flex flex-row justify-center items-end pt-[8%] pb-[2%]">
-              <div className="h-full w-4/5 bg-[rgba(255,255,255,0.1)] rounded-[60px] flex flex-row justify-center items-center">
-                <p className="text-white ">DISSENY PANELL QUESTIONS</p>
-              </div>
-            </div>
+            <PanelPreguntas
+              loadQuestionList={loadQuestionList}
+              indexQuestion={indexQuestion}
+            />
             <BolasPreguntas
               loadQuestionList={loadQuestionList}
               indexQuestion={indexQuestion}
