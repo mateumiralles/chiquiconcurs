@@ -40,6 +40,7 @@ export default function ConcursPage() {
           wildCardsUp={wildCardsUp}
           setWildCardsUp={setWildCardsUp}
           setIs50x100Active={setIs50x100Active}
+          alreadyChosen={alreadyChosen}
         />
 
         {vidas > 0 ? (

@@ -5,6 +5,7 @@ type WildcardsProps = {
   setWildCardsUp: (wildCardsUp: boolean[]) => void;
   wildCardType: number;
   setIs50x100Active?: (is50x100Active: boolean) => void;
+  alreadyChosen: boolean;
 };
 
 export default function WildcardBtn({
@@ -12,6 +13,7 @@ export default function WildcardBtn({
   setWildCardsUp,
   wildCardType,
   setIs50x100Active,
+  alreadyChosen,
 }: WildcardsProps) {
   const whichWildcard = (wildCardType: number) => {
     switch (wildCardType) {
@@ -32,11 +34,17 @@ export default function WildcardBtn({
   return (
     <div
       onClick={() =>
-        wildCardsUp[wildCardType] ? wildcardClickHandler(wildCardType) : null
+        wildCardsUp[wildCardType]
+          ? alreadyChosen
+            ? null
+            : wildcardClickHandler(wildCardType)
+          : null
       }
       className={`w-[60px] h-[60px] rounded-full ml-10 p-3 border-2 border-[rgba(0,0,0,0)]  flex justify-center items-center  transition-all ease-in-out ${
         wildCardsUp[wildCardType]
-          ? "hover:border-white hover:scale-[80%] bg-[rgba(255,255,255,0.1)] cursor-pointer"
+          ? !alreadyChosen
+            ? "hover:border-white hover:scale-[80%] bg-[rgba(255,255,255,0.1)] cursor-pointer"
+            : "opacity-30 bg-[rgba(255,255,255,0.4)]"
           : "opacity-30 bg-[rgba(255,255,255,0.4)]"
       }`}
     >
