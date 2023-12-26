@@ -4,7 +4,6 @@ import { Question } from "../model";
 type GridRespostesProps = {
   loadQuestionList: Question[];
   indexQuestion: number;
-  setIndexQuestion: (indexQuestion: number) => void;
   wasItGuessed: boolean[];
   setWasItGuessed: (wasItGuessed: boolean[]) => void;
   vidas: number;
@@ -16,7 +15,6 @@ type GridRespostesProps = {
 export default function GridRespuestas({
   loadQuestionList,
   indexQuestion,
-  setIndexQuestion: setIndexQuestion,
   wasItGuessed,
   setWasItGuessed: setWasItGuessed,
   vidas,
@@ -39,7 +37,7 @@ export default function GridRespuestas({
   };
 
   const optionClickHandler = (sol: boolean, i: number) => {
-    let newGuessedList = wasItGuessed;
+    let newGuessedList = [...wasItGuessed];
     newGuessedList.push(sol ? true : false);
     setWasItGuessed(newGuessedList);
     setAlreadyChosen(true);

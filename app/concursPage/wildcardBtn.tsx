@@ -21,8 +21,17 @@ export default function WildcardBtn({
         return "change";
     }
   };
+  const wildcardClickHandler = (wildCardIndex: number) => {
+    console.log("clicked");
+    let auxList = [...wildCardsUp];
+    auxList[wildCardIndex] = false;
+    setWildCardsUp(auxList);
+  };
   return (
     <div
+      onClick={() =>
+        wildCardsUp[wildCardType] ? wildcardClickHandler(wildCardType) : null
+      }
       className={`w-[60px] h-[60px] rounded-full ml-10 p-3 border-2 border-[rgba(0,0,0,0)]  flex justify-center items-center  transition-all ease-in-out ${
         wildCardsUp[wildCardType]
           ? "hover:border-white hover:scale-[80%] bg-[rgba(255,255,255,0.1)] cursor-pointer"

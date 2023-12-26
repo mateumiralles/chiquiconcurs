@@ -54,7 +54,6 @@ export default function ConcursPage() {
             <GridRespuestas
               loadQuestionList={loadQuestionList}
               indexQuestion={indexQuestion}
-              setIndexQuestion={setIndexQuestion}
               wasItGuessed={wasItGuessed}
               setWasItGuessed={setWasItGuessed}
               vidas={vidas}
