@@ -6,7 +6,7 @@ type VidasProps = {
 
 export default function Vidas({ vidas }: VidasProps) {
   return (
-    <div className="absolute top-0 left-0 flex flex-row m-16 w-[200px] ">
+    <div className="absolute top-0 left-0 flex flex-row m-16 w-[30%] justify-start ">
       {Array.from({ length: vidas }, (_, index) => (
         <Image
           className="mr-10"

@@ -10,9 +10,11 @@ import {
 import BolasPreguntas from "./bolasPreguntas";
 import PanelPreguntas from "./panelPreguntas";
 import GridRespuestas from "./gridRespuestas";
+import Wildcards from "./barraWildcards";
 
 export default function ConcursPage() {
   const [vidas, setVidas] = useState(3);
+  const [wildCardsUp, setWildCardsUp] = useState<boolean[]>([true, true, true]);
   const [indexQuestion, setIndexQuestion] = useState(0);
   const [wasItGuessed, setWasItGuessed] = useState<boolean[]>([]);
   const [alreadyChosen, setAlreadyChosen] = useState(false);
@@ -33,6 +35,8 @@ export default function ConcursPage() {
 
       <div className="flex flex-col h-full w-full justify-center items-center">
         <Vidas vidas={vidas} />
+        <Wildcards wildCardsUp={wildCardsUp} setWildCardsUp={setWildCardsUp} />
+
         {vidas > 0 ? (
           <>
             <PanelPreguntas
