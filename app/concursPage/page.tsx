@@ -18,6 +18,7 @@ export default function ConcursPage() {
   const [indexQuestion, setIndexQuestion] = useState(0);
   const [wasItGuessed, setWasItGuessed] = useState<boolean[]>([]);
   const [alreadyChosen, setAlreadyChosen] = useState(false);
+  const [is50x100Active, setIs50x100Active] = useState(false);
 
   const loadQuestionList: Question[] = [
     ...easyQuestionsList,
@@ -35,7 +36,11 @@ export default function ConcursPage() {
 
       <div className="flex flex-col h-full w-full justify-center items-center">
         <Vidas vidas={vidas} />
-        <Wildcards wildCardsUp={wildCardsUp} setWildCardsUp={setWildCardsUp} />
+        <Wildcards
+          wildCardsUp={wildCardsUp}
+          setWildCardsUp={setWildCardsUp}
+          setIs50x100Active={setIs50x100Active}
+        />
 
         {vidas > 0 ? (
           <>
@@ -45,6 +50,7 @@ export default function ConcursPage() {
               setIndexQuestion={setIndexQuestion}
               alreadyChosen={alreadyChosen}
               setAlreadyChosen={setAlreadyChosen}
+              setIs50x100Active={setIs50x100Active}
             />
             <BolasPreguntas
               loadQuestionList={loadQuestionList}
@@ -60,6 +66,7 @@ export default function ConcursPage() {
               setVidas={setVidas}
               alreadyChosen={alreadyChosen}
               setAlreadyChosen={setAlreadyChosen}
+              is50x100Active={is50x100Active}
             />
           </>
         ) : (

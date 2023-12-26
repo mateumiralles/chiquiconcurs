@@ -6,6 +6,7 @@ type BolasPreguntasProps = {
   setIndexQuestion: (indexQuestion: number) => void;
   alreadyChosen: boolean;
   setAlreadyChosen: (vidas: boolean) => void;
+  setIs50x100Active: (is50x100Active: boolean) => void;
 };
 
 export default function PanelPreguntas({
@@ -14,6 +15,7 @@ export default function PanelPreguntas({
   setIndexQuestion: setIndexQuestion,
   alreadyChosen,
   setAlreadyChosen: setAlreadyChosen,
+  setIs50x100Active: setIs50x100Active,
 }: BolasPreguntasProps) {
   const clickQuestionHandler = () => {
     alreadyChosen ? nextQuestion() : console.log("There is no option chosen");
@@ -22,6 +24,7 @@ export default function PanelPreguntas({
   const nextQuestion = () => {
     setIndexQuestion(indexQuestion + 1);
     setAlreadyChosen(false);
+    setIs50x100Active(false);
   };
   return (
     <div className="h-3/5 w-full flex flex-row justify-center items-end pt-[8%] pb-5">

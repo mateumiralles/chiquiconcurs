@@ -4,12 +4,14 @@ type WildcardsProps = {
   wildCardsUp: boolean[];
   setWildCardsUp: (wildCardsUp: boolean[]) => void;
   wildCardType: number;
+  setIs50x100Active?: (is50x100Active: boolean) => void;
 };
 
 export default function WildcardBtn({
   wildCardsUp,
   setWildCardsUp,
   wildCardType,
+  setIs50x100Active,
 }: WildcardsProps) {
   const whichWildcard = (wildCardType: number) => {
     switch (wildCardType) {
@@ -22,7 +24,7 @@ export default function WildcardBtn({
     }
   };
   const wildcardClickHandler = (wildCardIndex: number) => {
-    console.log("clicked");
+    wildCardIndex === 1 ? setIs50x100Active!(true) : null;
     let auxList = [...wildCardsUp];
     auxList[wildCardIndex] = false;
     setWildCardsUp(auxList);
