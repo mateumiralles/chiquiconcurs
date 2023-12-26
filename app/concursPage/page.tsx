@@ -15,6 +15,8 @@ export default function ConcursPage() {
   const [vidas, setVidas] = useState(3);
   const [indexQuestion, setIndexQuestion] = useState(0);
   const [wasItGuessed, setWasItGuessed] = useState<boolean[]>([]);
+  const [alreadyChosen, setAlreadyChosen] = useState(false);
+
   const loadQuestionList: Question[] = [
     ...easyQuestionsList,
     ...midQuestionsList,
@@ -36,6 +38,9 @@ export default function ConcursPage() {
             <PanelPreguntas
               loadQuestionList={loadQuestionList}
               indexQuestion={indexQuestion}
+              setIndexQuestion={setIndexQuestion}
+              alreadyChosen={alreadyChosen}
+              setAlreadyChosen={setAlreadyChosen}
             />
             <BolasPreguntas
               loadQuestionList={loadQuestionList}
@@ -50,6 +55,8 @@ export default function ConcursPage() {
               setWasItGuessed={setWasItGuessed}
               vidas={vidas}
               setVidas={setVidas}
+              alreadyChosen={alreadyChosen}
+              setAlreadyChosen={setAlreadyChosen}
             />
           </>
         ) : (
