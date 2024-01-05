@@ -30,7 +30,7 @@ export default function ConcursPage() {
     <main className="flex  h-screen w-screen flex-col items-center justify-between ">
       <div className="relative w-full">
         <div className="absolute -z-10 mt-10 flex w-full justify-center">
-          <div className="h-[800px] w-[800px] bg-gradient-radial from-sky-200 via-blue-200 blur-3xl  dark:from-sky-900 dark:via-[#0141ff] dark:opacity-25"></div>
+          <div className="h-[800px] w-[800px] bg-gradient-radial from-sky-900  via-[#0141ff] opacity-25 blur-3xl"></div>
         </div>
       </div>
 

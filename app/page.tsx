@@ -5,7 +5,7 @@ export default function Home() {
     <main className="flex h-screen w-screen flex-col items-center justify-between ">
       <div className="relative w-full">
         <div className="absolute -z-10 mt-10 flex w-full justify-center">
-          <div className="h-[800px] w-[800px] bg-gradient-radial from-sky-200 via-blue-200 blur-3xl  dark:from-sky-900 dark:via-[#0141ff] dark:opacity-25"></div>
+          <div className="h-[800px] w-[800px] bg-gradient-radial from-sky-900  via-[#0141ff] opacity-25 blur-3xl"></div>
         </div>
       </div>
 
@@ -16,7 +16,7 @@ export default function Home() {
         </div>
         <div className="flex h-1/3 flex-col items-center justify-start">
           <Link href="/concursPage">
-            <div className="group  rounded-lg border border-transparent px-5 py-4 transition-all duration-200 ease-in-out hover:scale-110 hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-500 hover:dark:bg-neutral-700/30">
+            <div className="group  rounded-lg border border-transparent px-5 py-4 transition-all duration-200 ease-in-out hover:scale-110  hover:border-neutral-500 hover:bg-neutral-700/30">
               <h2 className={`mb-3 text-center text-2xl font-semibold`}>
                 START{" "}
                 <span className="inline-block pl-2 transition-transform ease-in-out group-hover:translate-x-10">
