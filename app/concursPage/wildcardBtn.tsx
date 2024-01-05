@@ -40,16 +40,16 @@ export default function WildcardBtn({
             : wildcardClickHandler(wildCardType)
           : null
       }
-      className={`w-[60px] h-[60px] rounded-full ml-10 p-3 border-2 border-[rgba(0,0,0,0)]  flex justify-center items-center  transition-all ease-in-out ${
+      className={`ml-10 flex h-[60px] w-[60px] items-center justify-center rounded-full  border-2 border-[rgba(0,0,0,0)] p-3  transition-all ease-in-out ${
         wildCardsUp[wildCardType]
           ? !alreadyChosen
-            ? "hover:border-white hover:scale-[80%] bg-[rgba(255,255,255,0.1)] cursor-pointer"
-            : "opacity-30 bg-[rgba(255,255,255,0.4)]"
-          : "opacity-30 bg-[rgba(255,255,255,0.4)]"
+            ? "cursor-pointer bg-[rgba(255,255,255,0.1)] hover:scale-[80%] hover:border-white"
+            : "bg-[rgba(255,255,255,0.4)] opacity-30"
+          : "bg-[rgba(255,255,255,0.4)] opacity-30"
       }`}
     >
       {wildCardType === 1 ? (
-        <p className="font-bold text-4xl">{whichWildcard(wildCardType)}</p>
+        <p className="text-4xl font-bold">{whichWildcard(wildCardType)}</p>
       ) : (
         <Image
           className="m-1 h-full w-full"

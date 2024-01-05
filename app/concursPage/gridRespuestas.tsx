@@ -63,39 +63,39 @@ export default function GridRespuestas({
     sol
       ? null
       : vidas === 1
-      ? setTimeout(() => setVidas(vidas - 1), 1500)
-      : setVidas(vidas - 1);
+        ? setTimeout(() => setVidas(vidas - 1), 1500)
+        : setVidas(vidas - 1);
   };
 
   return (
     <>
-      <div className="grid grid-cols-2 h-2/5 w-4/5  gap-10 pb-[3%] pt-5">
+      <div className="grid h-2/5 w-4/5 grid-cols-2  gap-10 pb-[3%] pt-5">
         {loadQuestionList[indexQuestion].solutions.map((sol, i) => (
           <div
             onClick={() =>
               alreadyChosen
                 ? null
                 : is50x100Active && index50x100List.includes(i)
-                ? null
-                : optionClickHandler(sol.isTrue, i)
+                  ? null
+                  : optionClickHandler(sol.isTrue, i)
             }
             key={i}
-            className={`border-2 border-[rgba(0,0,0,0)] rounded-3xl flex justify-center items-center  transition-all ease-in-out  ${
+            className={`flex items-center justify-center rounded-3xl border-2 border-[rgba(0,0,0,0)]  transition-all ease-in-out  ${
               alreadyChosen
                 ? optionChosen === i
                   ? sol.isTrue
                     ? "bg-[rgba(55,187,103,0.5)]"
                     : "bg-[rgba(224,75,75,0.5)]"
                   : sol.isTrue
-                  ? "bg-[rgba(55,187,103,0.5)]"
-                  : "bg-[rgba(255,255,255,0.1)]"
+                    ? "bg-[rgba(55,187,103,0.5)]"
+                    : "bg-[rgba(255,255,255,0.1)]"
                 : is50x100Active && index50x100List.includes(i)
-                ? "bg-[rgba(255,255,255,0.1)]"
-                : "bg-[rgba(255,255,255,0.1)] hover:border-white hover:scale-95 cursor-pointer"
+                  ? "bg-[rgba(255,255,255,0.1)]"
+                  : "cursor-pointer bg-[rgba(255,255,255,0.1)] hover:scale-95 hover:border-white"
             } `}
           >
             <p
-              className={`text-4xl font-bold text-center ${
+              className={`text-center text-4xl font-bold ${
                 is50x100Active && index50x100List.includes(i) && "opacity-0"
               }`}
             >

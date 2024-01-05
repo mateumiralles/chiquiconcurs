@@ -14,7 +14,7 @@ export default function Wildcards({
   alreadyChosen,
 }: WildcardsProps) {
   return (
-    <div className="absolute top-0 right-0 flex flex-row m-16 w-[20%] justify-end">
+    <div className="absolute right-0 top-0 m-16 flex w-[20%] flex-row justify-end">
       <WildcardBtn
         wildCardType={0}
         wildCardsUp={wildCardsUp}

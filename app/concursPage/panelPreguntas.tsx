@@ -27,16 +27,16 @@ export default function PanelPreguntas({
     setIs50x100Active(false);
   };
   return (
-    <div className="h-3/5 w-full flex flex-row justify-center items-end pt-[8%] pb-5">
+    <div className="flex h-3/5 w-full flex-row items-end justify-center pb-5 pt-[8%]">
       <div
-        className={`h-full w-4/5 bg-[rgba(255,255,255,0.1)] rounded-[60px] flex flex-row justify-center items-center border-2 border-[rgba(0,0,0,0)] transition-all ease-in-out${
+        className={`flex h-full w-4/5 flex-row items-center justify-center rounded-[60px] border-2 border-[rgba(0,0,0,0)] bg-[rgba(255,255,255,0.1)] transition-all ease-in-out${
           alreadyChosen
-            ? " hover:border-white  cursor-pointer hover:scale-95 "
+            ? " cursor-pointer  hover:scale-95 hover:border-white "
             : ""
         }`}
         onClick={clickQuestionHandler}
       >
-        <p className="text-5xl font-bold mx-[5%] text-center leading-normal">
+        <p className="mx-[5%] text-center text-5xl font-bold leading-normal">
           {indexQuestion + 1 + ". " + loadQuestionList[indexQuestion].content}
         </p>
       </div>

@@ -12,23 +12,23 @@ export default function BolasPreguntas({
   wasItGuessed,
 }: BolasPreguntasProps) {
   return (
-    <div className="h-20 w-full flex flex-row justify-evenly items-center  ">
+    <div className="flex h-20 w-full flex-row items-center justify-evenly  ">
       {loadQuestionList.map((_, i) => (
         <div
           key={i}
-          className={`rounded-full flex items-center justify-center font-bold  h-12 w-12                 
+          className={`flex h-12 w-12 items-center justify-center  rounded-full font-bold                 
       ${
         indexQuestion === i && (i + 1) % 3 == 0
-          ? "h-[72px] w-[72px]  bg-black  border-yellow-500 border-4 text-2xl opacity-100"
+          ? "h-[72px] w-[72px]  border-4  border-yellow-500 bg-black text-2xl opacity-100"
           : indexQuestion === i
-          ? "h-[72px] w-[72px]  bg-black  border-white border-[3px] text-2xl opacity-100"
-          : indexQuestion > i
-          ? wasItGuessed[i]
-            ? " bg-green-700 opacity-100"
-            : "text-lg bg-red-500"
-          : (i + 1) % 3 == 0
-          ? "border-yellow-500 border-4 opacity-90"
-          : "text-lg bg-gray-500 opacity-50"
+            ? "h-[72px] w-[72px]  border-[3px]  border-white bg-black text-2xl opacity-100"
+            : indexQuestion > i
+              ? wasItGuessed[i]
+                ? " bg-green-700 opacity-100"
+                : "bg-red-500 text-lg"
+              : (i + 1) % 3 == 0
+                ? "border-4 border-yellow-500 opacity-90"
+                : "bg-gray-500 text-lg opacity-50"
       }
       `}
         >

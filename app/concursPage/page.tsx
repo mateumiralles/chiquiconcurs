@@ -27,14 +27,14 @@ export default function ConcursPage() {
   ];
 
   return (
-    <main className="flex  w-screen h-screen flex-col items-center justify-between ">
+    <main className="flex  h-screen w-screen flex-col items-center justify-between ">
       <div className="relative w-full">
-        <div className="absolute w-full flex justify-center mt-10 -z-10">
+        <div className="absolute -z-10 mt-10 flex w-full justify-center">
           <div className="h-[800px] w-[800px] bg-gradient-radial from-sky-200 via-blue-200 blur-3xl  dark:from-sky-900 dark:via-[#0141ff] dark:opacity-25"></div>
         </div>
       </div>
 
-      <div className="flex flex-col h-full w-full justify-center items-center">
+      <div className="flex h-full w-full flex-col items-center justify-center">
         <Vidas vidas={vidas} />
         <Wildcards
           wildCardsUp={wildCardsUp}
@@ -71,7 +71,7 @@ export default function ConcursPage() {
             />
           </>
         ) : (
-          <h2 className="text-8xl text-white font-extrabold">has perdut!</h2>
+          <h2 className="text-8xl font-extrabold text-white">has perdut!</h2>
         )}
       </div>
     </main>
