@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { Question } from "../model";
+import { Question, Solution } from "../model";
 
 type GridRespostesProps = {
   loadQuestionList: Question[];
@@ -24,6 +25,7 @@ export default function GridRespuestas({
   setAlreadyChosen: setAlreadyChosen,
   is50x100Active,
 }: GridRespostesProps) {
+  const [loadedSolutions, setLoadedSolutions] = useState<Solution[]>([]);
   const [optionChosen, setOptionChosen] = useState(-1);
   const [index50x100List, setIndex50x100List] = useState([0]);
   const numberOfSol = (solIndex: number) => {
@@ -39,20 +41,28 @@ export default function GridRespuestas({
     }
   };
 
+  const randomOrderArray = (array: any[]): any[] => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
+
   useEffect(() => {
-    let auxList: number[] = [];
-    loadQuestionList[indexQuestion].solutions.forEach((solution, i) => {
+    setLoadedSolutions(
+      randomOrderArray(loadQuestionList[indexQuestion].solutions),
+    );
+  }, [indexQuestion]);
+
+  useEffect(() => {
+    const auxList: number[] = [];
+    loadedSolutions.forEach((solution, i) => {
       solution.isTrue ? null : auxList.push(i);
     });
 
-    for (let i = auxList.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [auxList[i], auxList[j]] = [auxList[j], auxList[i]];
-    }
-    auxList = auxList.splice(0, 2);
-    setIndex50x100List(auxList);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [indexQuestion]);
+    setIndex50x100List(randomOrderArray(auxList).splice(0, 2));
+  }, [loadedSolutions]);
 
   const optionClickHandler = (sol: boolean, i: number) => {
     let newGuessedList = [...wasItGuessed];
@@ -70,7 +80,7 @@ export default function GridRespuestas({
   return (
     <>
       <div className="grid h-2/5 w-4/5 grid-cols-2  gap-10 pb-[3%] pt-5">
-        {loadQuestionList[indexQuestion].solutions.map((sol, i) => (
+        {loadedSolutions.map((sol, i) => (
           <div
             onClick={() =>
               alreadyChosen
@@ -99,9 +109,10 @@ export default function GridRespuestas({
                 is50x100Active && index50x100List.includes(i) && "opacity-0"
               }`}
             >
+              <span className="text-yellow-500">{numberOfSol(i)}</span>
               {is50x100Active && index50x100List.includes(i)
                 ? "-"
-                : numberOfSol(i) + sol.content}
+                : sol.content}
             </p>
           </div>
         ))}
