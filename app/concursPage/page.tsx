@@ -1,21 +1,16 @@
 "use client";
-import { useState, useEffect } from "react";
-import Vidas from "./barraVidas";
+import { useEffect, useState } from "react";
 import { Question } from "../model";
 import {
-  easyQuestionsList,
-  midQuestionsList,
-  diffQuestionsList,
-} from "../data";
-import {
+  diffQuestions,
   easyQuestions,
   midQuestions,
-  diffQuestions,
 } from "../questions/questionsLists";
-import BolasPreguntas from "./bolasPreguntas";
-import PanelPreguntas from "./panelPreguntas";
-import GridRespuestas from "./gridRespuestas";
+import Vidas from "./barraVidas";
 import Wildcards from "./barraWildcards";
+import BolasPreguntas from "./bolasPreguntas";
+import GridRespuestas from "./gridRespuestas";
+import PanelPreguntas from "./panelPreguntas";
 
 export default function ConcursPage() {
   const [vidas, setVidas] = useState(3);
@@ -60,6 +55,7 @@ export default function ConcursPage() {
   useEffect(() => {
     loadRandomQuestions();
     setAreQuestionsLoaded(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
